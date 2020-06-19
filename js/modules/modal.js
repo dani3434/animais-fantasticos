@@ -1,24 +1,41 @@
-export default function initModal(){
-    const botaoAbrir = document.querySelector('[data-modal="abrir"]');
-    const botaoFechar = document.querySelector('[data-modal="fechar"]');
-    const containerModal = document.querySelector('[data-modal="container"]');
+export default class initModal{
+    
+  constructor(botaoAbrir,botaoFechar,containerModal){
+    this.botaoAbrir = document.querySelector(botaoAbrir);
+    this.botaoFechar = document.querySelector(botaoFechar);
+    this.containerModal = document.querySelector(containerModal);
+
+    // bind this ao callback
+    this.modal = this.modal.bind(this);
+    this.foraModal = this.foraModal.bind(this);
+
+  }
    
-    function modal(event){
-      event.preventDefault();
-      containerModal.classList.toggle('ativo');
+  toggleModal(){
+    this.containerModal.classList.toggle('ativo');
+  }
+
+  modal(event){
+    event.preventDefault();
+    this.toggleModal()
+  }
+
+  foraModal(event){
+    if(event.target === this.containerModal)
+    this.modal(event);
+  }
+
+  addModalEvents(){
+    this.botaoAbrir.addEventListener('click',this.modal);
+    this.botaoFechar.addEventListener('click',this.modal);
+    this.containerModal.addEventListener('click',this.foraModal);
+  }
+
+  init(){
+    if(this.botaoAbrir && this.botaoFechar && this.containerModal){
+      this.addModalEvents()
     }
-
-    function foraModal(event){
-      if(event.target === this)
-      modal(event);
-    }
-
-    if(botaoAbrir && botaoFechar && containerModal){
-
-        botaoAbrir.addEventListener('click',modal);
-        botaoFechar.addEventListener('click',modal);
-        containerModal.addEventListener('click',foraModal);
-
-    }
+    return this;
+  }
 }
 
