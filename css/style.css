@@ -1,6 +1,8 @@
-body,h1,h2,ul,li,p,dd,dt,dl{
+body,h1,h2,h3,ul,li,p,dd,dt,dl{
   margin: 0px;
   padding: 0;
+  font-family: monospace;
+  font-size: 16px;
 }
 
 img{
@@ -15,10 +17,16 @@ body{
   background: #faf6ed;
   color: #222;
   -webkit-font-smoothing: antialiased;
+}
+
+.grid-container{
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px,800px) 1fr;
 }
 
+html.font{
+  font-size: 50px;
+}
 .menu{
   grid-column: 3/5;
   margin-top: 2rem;
@@ -89,6 +97,9 @@ body{
   overflow-y: scroll;
   grid-column: 2;
 }
+.animais-lista li{
+  cursor: pointer;
+}
 .animais-lista::-webkit-scrollbar{
   width: 18px;
 }
@@ -134,6 +145,7 @@ body{
 
 .mapa{
   grid-column: 2;
+
 }
 .dados{
   grid-column: 3;
@@ -164,7 +176,7 @@ body{
 }
 
 @media (max-width:700px){
-  body{
+  .grid-container{
     grid-template-columns: 1fr;
   }
   .menu,.grid-section,.copy{
@@ -190,3 +202,100 @@ body{
     margin-bottom: 0px;
   }
 }
+
+/* classes javascript */
+.js [data-tab="content"] section{
+  display: none;
+}
+
+[data-tab="content"] section.ativo{
+  display: block !important;
+}
+
+[data-tab="content"] section.ativo.show-right{
+  animation: show-right .5s forwards;
+}
+
+[data-tab="content"] section.ativo.show-down{
+  animation: show-down .5s forwards;
+}
+
+@keyframes show-right{
+  from{
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes show-down{
+  from{
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+/* acordion list */
+.js [data-anime="acordion"] dd{
+  display: none;
+}
+[data-anime="acordion"] dt::after{
+  content: '⬎';
+  margin-left: 10px;
+}
+[data-anime="acordion"] dt.ativo::after{
+  content: '⬏';
+}
+[data-anime="acordion"] dd.ativo{
+  display: block;
+  animation: slideDown .5s forwards;
+}
+@keyframes slideDown{
+  from{
+    opacity: 0;
+    max-height: 0;
+  }
+  to{
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+
+/* Animação ao scroll */
+.js [data-anima="scroll"]{
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: .3s;
+}
+.js [data-anima="scroll"].ativo{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+[data-semana]::after{
+ content: '';
+ display: inline-block;
+ width: 8px;
+ height: 8px;
+ background: #ff3333;
+ border-radius:50%;
+ margin-left: 5px;
+ border: 2px solid #000;
+}
+
+[data-semana].aberto::after{
+  background: #3f4;
+ }
+
+ .btc-preco{
+  background: #3f4;
+  padding: .2rem .5rem;
+  font-weight: bold;
+  border-radius: 3px;
+ }
