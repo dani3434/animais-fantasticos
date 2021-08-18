@@ -4,7 +4,7 @@ import TabNav from './modules/tabnav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import ScrollAnima from './modules/scroll-anima.js';
-import initDropDownMenu from './modules/dropdown-menu.js';
+import DropDownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
 import InitFuncionamento from './modules/funcionamento.js';
 import FetchAnimais from './modules/fetch-animais.js';
@@ -27,7 +27,8 @@ tooltip.init();
 
 const scrollAnima = new ScrollAnima('[data-anima="scroll"]');
 scrollAnima.init();
-initDropDownMenu();
+const dropDownMenu = new DropDownMenu('[data-dropdown]');
+dropDownMenu.init();
 initMenuMobile();
 InitFuncionamento();
 FetchAnimais('../../animais-api.json', '.numeros-grid');
