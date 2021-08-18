@@ -1,9 +1,11 @@
+import debounce from './debounce-scroll.js';
+
 export default class AnimaScroll {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.windowAltura = window.innerHeight * 0.6;
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 100);
   }
 
   // Pega a distancia de cada item em relação ao topo
