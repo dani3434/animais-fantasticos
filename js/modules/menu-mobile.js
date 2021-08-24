@@ -9,7 +9,8 @@ export default class initMenuMobile {
     this.openMenu = this.openMenu.bind(this);
   }
 
-  openMenu() {
+  openMenu(event) {
+    event.preventDefault();
     this.menuList.classList.toggle('ativo');
     this.menuButton.classList.toggle('ativo');
 

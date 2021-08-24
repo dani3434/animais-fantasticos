@@ -16,8 +16,8 @@
 }
 
 .slide li{
-  width: 90vh;
-  max-width: 1000px;
+  width: 80vh;
+  max-width: 900px;
   flex-shrink: 0;
   margin: 0 20px;
   opacity: .8;

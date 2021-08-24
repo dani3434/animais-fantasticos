@@ -183,9 +183,13 @@ html.font{
     grid-column: 1;
   }
   .grid-section{
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 10px;
   }
+  .grid-section.animais{
+    grid-template-columns: 100px 1fr;
+  }
+
   .animais-lista{
     grid-column: 1;
   }
@@ -193,7 +197,7 @@ html.font{
     grid-column: 2;
   }
   .grid-section h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .menu{
     margin-top: 0px;
@@ -246,11 +250,19 @@ html.font{
   display: none;
 }
 [data-anime="acordion"] dt::after{
-  content: '⬎';
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url('../img/arrow-red.svg') no-repeat center center;
+  transform: rotate(90deg);
   margin-left: 10px;
+  transition: transform .3s;
 }
 [data-anime="acordion"] dt.ativo::after{
-  content: '⬏';
+  content: '';
+  transform: rotate(-90deg);
+
 }
 [data-anime="acordion"] dd.ativo{
   display: block;
@@ -298,4 +310,11 @@ html.font{
   padding: .2rem .5rem;
   font-weight: bold;
   border-radius: 3px;
+ }
+
+ .arrow-black{
+   background: url('../img/arrow-black.svg') no-repeat center center;
+   display: inline-block;
+   width: 8px;
+   height: 10px;
  }

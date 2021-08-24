@@ -1,6 +1,6 @@
 
 .modal-container{
-  height: 100vh;
+  height: 75vh;
   width: 100%;
   background: rgba(0, 0, 0, .5);
   position: fixed;
@@ -33,7 +33,9 @@
   border: 10px solid #FB5;
   box-shadow: 0 0 0 10px white;
   position: relative;
-  min-width: 300px;
+  box-sizing: border-box;
+  max-width: 600px;
+  width: 80vw;
 }
 .fechar{
   position: absolute;
@@ -45,10 +47,8 @@
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .3);
-  background: #E54;
-  font-size: 1.2rem;
+  background: #E54 url('../img/fechar.svg') no-repeat center center;
   color: white;
-  font-family: monospace;
 }
 .modal label{
   font-family: monospace;
@@ -61,6 +61,8 @@
   width: 100%;
   padding: .7rem .5rem;
   box-sizing: border-box;
+  border: 2px solid #222;
+  border-radius: 0;
 }
 
 .modal button[type='submit']{
