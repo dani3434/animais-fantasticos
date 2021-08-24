@@ -11,11 +11,7 @@
   justify-content: center;
   align-items: center;
 }
-@media (max-width: 800px){
-  .modal-container{
-    height: 75vh;
-  }
-}
+
 @keyframes modal{
   from{
     opacity: 0;
